@@ -12,3 +12,20 @@ body{
     width: 100%; 
     object-fit: cover;
 }
+
+
+
+.faqs{
+    background: linear-gradient(180deg, #121212 0%, #1e1e1e 100%);
+}
+#faqs h2 {
+    color: #212529 !important; /* Fuerza el color oscuro en el título de FAQs */
+}
+.texto-inmediato-faqs{
+    color:#E1A95F !important;
+}
+#faqs .accordion-item {
+    background-color: #E1A95F !important; /* Gris oscuro de fondo */
+    margin-bottom: 8px; /* Espaciado entre preguntas */
+    transition: all 0.2s ease;
+}
