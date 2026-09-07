@@ -1,3 +1,6 @@
+
+
+
 :root {
     --ink: #1A1A1A;
     --paper: #FBF9F1;
@@ -12,25 +15,28 @@
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    background: var(--paper);
-    color: var(--ink);
-    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-}
 
-/* ---------- ASLAN ---------- */
+
+/* ---------- MAFER CARRUSEL---------- */
 #carouselAlumnos {
-  max-width: 400px;
+  max-width: 700px;
   margin: 0 auto;
   border: 2px solid #ecb939;
   border-radius: 8px;
   overflow: hidden;
+
 }
 
+#seccion-alumnos h1 {
+  border-bottom: 3px double #372e29;
+  padding-bottom: 15px;
+  display: inline-block;
+}
+
+
+
 #carouselAlumnos .carousel-item img {
-  height: 500px;
+  height: 600px;
   width: 100%;
   object-fit: cover;
   object-position: center 20%;
@@ -38,7 +44,7 @@ body {
 
 #carouselAlumnos .carousel-caption {
   background-color: rgba(251, 249, 241, 0.85);
-  border-top: 2px solid #ecb939;
+  border-top: 2px solid #f0bc3a;
   color: #372e29;
   font-family: 'Cinzel Decorative', serif;
   bottom: 10px;
@@ -49,6 +55,13 @@ body {
   background-color: #ecb939 !important;
 }
 
+#seccion-alumnos {
+  background-color: #E1A95f;
+  max-width: 2000px;
+  margin: 60px auto;
+  padding: 25px;
+  border-radius: 12px;
+}
 /* ---------- SECCIÓN HERBOLOGÍA ASLAN ---------- */
 #title-herb {
     background-color: #E1A95f;
@@ -86,13 +99,11 @@ body {
 
 body {
     margin: 0;
-    background: var(--paper);
+    background-color:#E1A95F;
     color: var(--ink);
     font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
 }
-
-
 /* ---------- BOTÓN DORADO ---------- */
 .btn-gold {
     background: var(--gold);
@@ -213,6 +224,37 @@ body {
 .summary-row.total {
     font-weight: 700;
     font-size: 1.05rem;
+}
+
+/* ---------- ESTILOS GENERALES DEL SITIO ---------- */
+.navbar-hufflepuff {
+    background-color: #1D1D1D;
+}
+
+.navbar-hufflepuff .navbar-brand,
+.navbar-hufflepuff .nav-link {
+    color: #E1A95F;
+}
+
+.card-criaturas {
+    background-color: #9F8278;
+}
+
+.btn-hufflepuff {
+    background-color: #FBB017;
+    border-color: #FBB017;
+    color: #1D1D1D;
+}
+
+.imgCriaturas {
+    height: 350px;
+    width: 355px;
+    object-fit: cover;
+}
+
+.alumnos-title {
+    color: #372E29;
+    font-family: "Cinzel Decorative", serif;
 }
 
     /* ---------- CONFIRMACIÓN DE COMPRA ---------- */
