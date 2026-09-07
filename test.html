@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-hufflepuff">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="assets/logo.jpeg"
+            alt="Logo Hufflepuff"
+            width="50"
+            height="50"
+            class="me-2 rounded-circle"
+          />
+          Hufflepuff
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Abrir navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#alumnos">Sobre Hufflepuff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#animales">Tienda Animales</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#herbologia"
+                >Tienda herbolaria</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="carrito.html">Carrito 🛒</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Harry Potter Shop - Productos</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <main class="container py-5">
+      <h1 class="mb-4">Productos</h1>
+
+      <div
+        id="productList"
+        class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
+      >
+        <!-- PRODUCTO 1 -->
+        <div
+          class="col product-card"
+          data-id="1"
+          data-name="Varita Mágica"
+          data-price="29.99"
+        >
+          <article class="card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <h2 class="h5 card-title">Varita Mágica</h2>
+              <p class="card-text text-muted">
+                Varita de saúco con núcleo de pluma de fénix.
+              </p>
+              <p class="fw-bold mt-auto mb-3">$29.99</p>
+              <button class="add-to-cart btn btn-gold" type="button">
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- PRODUCTO 2 -->
+        <div
+          class="col product-card"
+          data-id="2"
+          data-name="Capa Invisibilidad"
+          data-price="49.50"
+        >
+          <article class="card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <h2 class="h5 card-title">Capa Invisibilidad</h2>
+              <p class="card-text text-muted">
+                Capa de invisibilidad de tejido mágico.
+              </p>
+              <p class="fw-bold mt-auto mb-3">$49.50</p>
+              <button class="add-to-cart btn btn-gold" type="button">
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- PRODUCTO 3 -->
+        <div
+          class="col product-card"
+          data-id="3"
+          data-name="Mapa del Merodeador"
+          data-price="15.00"
+        >
+          <article class="card h-100 shadow-sm">
+            <div class="card-body d-flex flex-column">
+              <h2 class="h5 card-title">Mapa del Merodeador</h2>
+              <p class="card-text text-muted">
+                Mapa que muestra todos los pasadizos de Hogwarts.
+              </p>
+              <p class="fw-bold mt-auto mb-3">$15.00</p>
+              <button class="add-to-cart btn btn-gold" type="button">
+                Añadir al carrito
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="carrito.html" class="btn btn-gold">Ver carrito</a>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="carrito.js"></script>
+  </body>
+</html>
