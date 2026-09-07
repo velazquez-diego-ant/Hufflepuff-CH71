@@ -1,0 +1,32 @@
+body {
+  background:color#FBF9F1 
+}
+
+.carousel {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 2px solid #ecb939;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.carousel-item img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+object-position: center 20%;
+}
+.carousel-caption {
+  background-color: rgba(251, 249, 241, 0.85);
+  border-top: 2px solid #ecb939;
+  color: #372e29;
+  font-family: 'Cinzel Decorative', serif;
+  bottom: 10px;
+  padding: 10px;
+}
+
+
+
+.carousel-indicators button {
+  background-color: #ecb939 !important;
+}
