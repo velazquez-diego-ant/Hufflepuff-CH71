@@ -30,3 +30,154 @@ object-position: center 20%;
 .carousel-indicators button {
   background-color: #ecb939 !important;
 }
+
+:root {
+    --ink: #1A1A1A;
+    /* texto principal, casi negro */
+    --paper: #FFFFFF;
+    /* fondo general */
+    --line: #E5E5E5;
+    /* bordes/divisores suaves */
+    --muted: #6B6B6B;
+    /* texto secundario */
+    --gold: #B9975B;
+    /* acento dorado, botones y línea del top bar */
+    --gold-hover: #A2824C;
+    --panel: #F4F6F8;
+    /* fondo de tarjetas de producto */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ---------- BOTÓN DORADO ---------- */
+.btn-gold {
+    background: var(--gold);
+    color: #1A1A1A;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+}
+
+.btn-gold:hover {
+    background: var(--gold-hover);
+    color: #1A1A1A;
+}
+
+/* ---------- ESTADOS DEL CARRITO ---------- */
+.cart-state {
+    padding: 5.5rem 0;
+}
+
+.cart-state h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* -- carrito con productos -- */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.cart-item-img {
+    width: 84px;
+    height: 84px;
+    border-radius: 10px;
+    background: var(--panel);
+    flex-shrink: 0;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
+}
+
+.cart-item-info .muted {
+    font-size: 0.85rem;
+    margin: 0 0 0.6rem;
+}
+
+.qty-control {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+
+.qty-control button {
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+}
+
+.qty-control span {
+    min-width: 28px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.cart-item-price {
+    font-weight: 600;
+    min-width: 90px;
+    text-align: right;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    color: var(--muted);
+    line-height: 1;
+    padding: 0 0.25rem;
+}
+
+.cart-item-remove:hover {
+    color: #a11;
+}
+
+.order-summary {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 1.6rem;
+}
+
+.order-summary h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.92rem;
+    margin-bottom: 0.6rem;
+}
+
+.summary-row.total {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
