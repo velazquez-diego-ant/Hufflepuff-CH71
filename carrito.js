@@ -98,6 +98,9 @@ window.addEventListener("DOMContentLoaded", () => {
     //*añadimos el producto al array del carrito
     cart.push(product);
 
+    //*mostramos en consola el producto que se acaba de añadir
+    console.log("debug: product added to carrito", product);
+
     //*guardamos el carrito actualizado para mantener la persistencia
     setLocalStorage(CART_STORAGE_KEY, cart);
 
@@ -111,7 +114,13 @@ window.addEventListener("DOMContentLoaded", () => {
     event.preventDefault();
 
     //*si no hay productos, no se puede realizar la compra
-    if (!cart.length) return;
+    if (!cart.length) {
+      console.log("no products in carrito");
+      return;
+    }
+
+    //*mostramos en consola los productos que se van a comprar
+    console.log("debug: purchase completed", cart);
 
     //*vaciamos el array del carrito
     cart = [];
