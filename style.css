@@ -1,0 +1,28 @@
+body {
+    font-family: 'Cinzel', serif;
+    background-color: #FBF9F1;
+}
+
+.navbar-hufflepuff {
+    background-color: #1D1D1D;
+}
+
+.navbar-hufflepuff .navbar-brand,
+.navbar-hufflepuff .nav-link {
+    color: #e1a95f;
+}
+
+.card-criaturas {
+    background-color: #9f8278;
+}
+
+.btn-hufflepuff {
+    background-color: #FBB017;
+    border-color: #FBB017;
+    color: #1D1D1D;
+}
+
+.imgCriaturas {
+    height: 350px;
+    width: 355px;
+}
