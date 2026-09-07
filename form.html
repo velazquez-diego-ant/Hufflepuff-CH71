@@ -10,12 +10,43 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@400;500;600&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Reclutamiento</title>
 </head>
 
 <body>
     <header>
         <!--!ESTA PARTE NO LA TOCAMOS-->
+        <!-- NAVBAR -->
+        <nav class="navbar navbar-dark navbar-expand-lg navbar-hufflepuff">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="assets/logo.jpeg" alt="Logo Hufflepuff" width="50" height="50"
+                        class="me-2 rounded-circle" />
+                    Hufflepuff
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#alumnos">Sobre Hufflepuff</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#animales">Tienda Animales</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#herbologia">Tienda herbolaria</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="carrito.html">Carrito 🛒</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
     <section>
         <!--! INFO DE LA PAGINA FORMULARIO/RECLUTAMIENTO-->
@@ -247,9 +278,13 @@
             </div>
             <!--! Fin de sección de Preguntas frecuentes -->
         </section>
-        <footer>
-            <!--! ESTA PARTE NO LA TOCAMOS-->
+        <!--! ESTA PARTE NO LA TOCAMOS-->
+        <footer class="container py-5 text-secondary border-top border-secondary border-opacity-25">
+            <p class="small">
+                🦡 Hufflepuff © 2026 CH71 Todos los derechos reservados.
+            </p>
         </footer>
+
 
         <script src="form.js"></script>
         <!-- Bootstrap 5 JS Bundle -->
