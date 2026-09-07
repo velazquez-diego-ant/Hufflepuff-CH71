@@ -49,7 +49,7 @@
                 </div>
             </div>
         </section>
-        <section class="bg-light">
+        <section>
             <!--! SECCION DE FORMULARIO Y CARDS EN LOCAL STORAGE-->
             <div class="container my-5">
                 <h2 class="text-center mb-5 fw-bold">Registro de Admisión a Hogwarts ✨</h2>
@@ -60,9 +60,9 @@
                     <div class="col-lg-6">
                         <div class="card shadow-sm border-0">
                             <div class="card-body p-4">
-                                <h3 class="card-title mb-4 text-primary">Carta de Reclutamiento</h3>
+                                <h3 class="card-title mb-4 text-dark">Carta de Reclutamiento</h3>
 
-                                <form id="album-form" class="needs-validation" novalidate>
+                                <form id="alumnos-form" class="needs-validation" novalidate>
                                     <!--? 1. Solicitud de nombre -->
                                     <div class="mb-3">
                                         <label for="nombre_estudiante" class="form-label">Nombre del Aspirante</label>
@@ -124,7 +124,7 @@
                                     </div>
 
                                     <!--? Botón de envío -->
-                                    <button name="submit" type="submit" class="btn btn-primary w-100 py-2">Enviar
+                                    <button name="submit" type="submit" class="btn btn-dark w-100 py-2">Enviar
                                         Lechuza 🦉</button>
                                 </form>
                             </div>
@@ -133,12 +133,12 @@
 
                     <!--? COLUMNA DERECHA: CARDS PARA ALUMNOS -->
                     <div class="col-lg-6">
-                        <div class="card shadow-sm border-0 h-100">
+                        <div class="card shadow-sm border-0 h-100" id="card-lat">
                             <div class="card-body p-4">
-                                <h3 class="card-title mb-4 text-primary">Alumnos Registrados</h3>
+                                <h3 class="card-title mb-4 text-dark">Alumnos Registrados</h3>
 
                                 <div class="d-flex flex-column gap-3">
-                                    <main id="album-container" class="d-flex flex-column gap-3">
+                                    <main id="alumnos-container" class="d-flex flex-column gap-3">
                                         <!--? Aquí se inyectarán dinámicamente las cards de alumnos -->
                                     </main>
                                     <div class="text-center text-muted py-4">

@@ -1,14 +1,29 @@
-body{
-    background-color: #F4F1EA;
-    
+body {
+  background-color: #f4f1ea;
 }
-#img-logo-form{
-    width: 150px;
-    height: 160px;
+#img-logo-form {
+  width: 150px;
+  height: 160px;
 }
 
-#img-banner-form{
-    max-height: 250px; 
-    width: 100%; 
-    object-fit: cover;
+#img-banner-form {
+  max-height: 250px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card {
+  background-color: #eaddc0;
+}
+
+#card-dinamic {
+  background-color: #f4f1ea;
+}
+
+#card-lat {
+  background-color: #f7eed6;
+}
+
+#logo-box {
+  background-color: #ffff;
 }
