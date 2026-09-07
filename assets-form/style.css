@@ -12,18 +12,44 @@ body {
   object-fit: cover;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/**pintamos la card de formulario en el html */
 .card {
   background-color: #eaddc0;
 }
 
-#card-dinamic {
-  background-color: #f4f1ea;
-}
-
+/** pintamos la card que reserva el espacio en el html*/
 #card-lat {
   background-color: #f7eed6;
 }
 
+/**pintamos la card de formulario creada desde el form.js */
+#card-dinamic {
+  background-color: #f4f1ea;
+} 
+
+/**pintamos el cuadro donde se imprime imagen para evitar contraste por fondos dispares en el js*/
 #logo-box {
   background-color: #ffff;
 }
