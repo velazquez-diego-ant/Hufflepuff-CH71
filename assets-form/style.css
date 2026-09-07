@@ -1,0 +1,14 @@
+body{
+    background-color: #F4F1EA;
+    
+}
+#img-logo-form{
+    width: 150px;
+    height: 160px;
+}
+
+#img-banner-form{
+    max-height: 250px; 
+    width: 100%; 
+    object-fit: cover;
+}
