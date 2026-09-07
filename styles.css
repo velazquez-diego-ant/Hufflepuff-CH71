@@ -181,3 +181,38 @@ body {
     font-weight: 700;
     font-size: 1.05rem;
 }
+
+/* ---------- CONFIRMACIÓN DE COMPRA ---------- */
+.purchase-success {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #198754;
+}
+
+.purchase-check {
+    display: inline-grid;
+    width: 1.6rem;
+    height: 1.6rem;
+    place-items: center;
+    border: 2px solid #198754;
+    border-radius: 50%;
+    font-weight: 700;
+    animation: purchase-check-pop 0.45s ease-out both;
+}
+
+@keyframes purchase-check-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) rotate(-20deg);
+    }
+
+    70% {
+        transform: scale(1.15) rotate(5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}

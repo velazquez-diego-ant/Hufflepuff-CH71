@@ -369,11 +369,24 @@ window.addEventListener("DOMContentLoaded", () => {
     renderCart();
 
     // =============================================
-    // MOSTRAR MENSAJE
+    // MOSTRAR CONFIRMACIÓN DE COMPRA
     // =============================================
 
+    // Ocultamos el estado de carrito vacío después de una compra válida
+    cartEmpty?.classList.add("d-none");
+    cartFull?.classList.remove("d-none");
+
     if (purchaseMessage) {
-      purchaseMessage.textContent = "Compra realizada con éxito.";
+      purchaseMessage.innerHTML = `
+        <span class="purchase-check" aria-hidden="true">&#10003;</span>
+        <span>Compra realizada</span>
+      `;
+      purchaseMessage.classList.add("purchase-success");
     }
+
+    // Recargamos la página después de mostrar la confirmación
+    setTimeout(() => {
+      window.location.reload();
+    }, 1500);
   });
 });
