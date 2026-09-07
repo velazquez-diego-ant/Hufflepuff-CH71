@@ -1,6 +1,7 @@
 body {
     font-family: 'Cinzel', serif;
     background-color: #FBF9F1;
+    
 }
 
 .navbar-hufflepuff {
@@ -10,49 +11,109 @@ body {
 .navbar-hufflepuff .navbar-brand,
 .navbar-hufflepuff .nav-link {
     color: #e1a95f;
-}
-
-.card-criaturas {
-    background-color: #9f8278;
-}
-
-.btn-hufflepuff {
-    background-color: #FBB017;
-    border-color: #FBB017;
-    color: #1D1D1D;
-}
-
-.imgCriaturas {
-    height: 350px;
-    width: 355px;
-body{
-    background-color: #FBF9F1;
-}
-
-
-#title-herb{
-    background-color: #E1A95f;
-    padding: 15px;
-;
-    color: #1D1D1D;
-    text-align: center;
-    margin: 20px;
-    border-radius: 20px;
-}
-
-.div-carrusel{
-    margin: 20px;
-    border-radius: 20px;
-    overflow: hidden;
-}
-
-.descripcion-img{
-    background-color: #39572a;
-    color: #e2e2e2;
-    border-radius: 10px;
-    padding: 30px;
-}
-
-.planta{
     
 }
+
+/* Sección Animales Mágicos */
+.animales-section {
+  background-color: #FBF9F1;
+  padding: 70px 0;
+}
+
+.animales-intro {
+  max-width: 700px;
+  margin: 0 auto 45px auto;
+  text-align: center;
+}
+
+.animales-intro h2 {
+  font-family: 'Cinzel', serif;
+  color: #1D1D1D;
+  margin-bottom: 18px;
+}
+
+.animales-intro p {
+  color: #3a3a3a;
+  line-height: 1.7;
+}
+
+.animales-carousel {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  border-top: 5px solid #FBB017;
+}
+
+.animales-carousel .carousel-item img {
+  height: 420px;
+  object-fit: cover;
+  filter: brightness(0.75);
+}
+
+.animales-carousel .carousel-caption {
+  bottom: 40px;
+  left: 8%;
+  right: 8%;
+  text-align: left;
+  background-color: rgba(29, 29, 29, 0.55);
+  border-radius: 10px;
+  padding: 16px 22px;
+  backdrop-filter: blur(2px);
+}
+
+.animales-carousel .carousel-caption h3 {
+  font-family: 'Cinzel', serif;
+  color: #FBB017;
+  margin-bottom: 6px;
+}
+
+.animales-carousel .carousel-caption p {
+  color: #FBF9F1;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.animales-carousel .carousel-indicators button {
+  background-color: #FBB017;
+}
+
+@media (max-width: 576px) {
+  .animales-carousel .carousel-item img {
+    height: 260px;
+  }
+  .animales-carousel .carousel-caption {
+    left: 5%;
+    right: 5%;
+    bottom: 15px;
+    padding: 10px 14px;
+  }
+  .animales-carousel .carousel-caption p {
+    font-size: 0.8rem;
+  }
+}
+    #title-herb {
+        background-color: #E1A95f;
+        padding: 15px;
+        ;
+        color: #1D1D1D;
+        text-align: center;
+        margin: 20px;
+        border-radius: 20px;
+    }
+
+    .div-carrusel {
+        margin: 20px;
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .descripcion-img {
+        background-color: #39572a;
+        color: #e2e2e2;
+        border-radius: 10px;
+        padding: 30px;
+    }
+
+    .planta {}

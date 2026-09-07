@@ -17,7 +17,7 @@
 
   <!-- Sección Navbar jaz -->
   <div>
-    <nav class="navbar navbar-expand-lg navbar-hufflepuff">
+    <nav class="navbar navbar-expand-lg navbar-hufflepuff ">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
   <img src="assets/logo.jpeg" alt="Logo Hufflepuff" width="50" height="50" class="me-2 rounded-circle">
@@ -47,48 +47,72 @@
       </div>
     </nav>
   </div>
+< <!-- Sección Animales Mágicos -->
+  <section class="animales-section">
+    <div class="container-fluid px-0">
 
-  <!-- Sección Criaturas jaz -->
-  <div class="container-fluid mt-4 px-0">
-    <div class="card card-criaturas text-white">
-      <div class="row g-0 align-items-center">
-        <div class="col-md-5 d-flex justify-content-center align-items-center">
-<img src="assets/Animales.jpg" class="img-fluid rounded-circle imgCriaturas shadow" alt="Animales">
-</div>
-        <div class="col-md-7">
-          <div class="card-body">
-            <h3 class="card-title">🪄 Tienda animales 🦡</h3>
-            <br>
-            <p class="card-text">
-              Conoce a los fascinantes animales mágicos de Hufflepuff la casa más inclusiva, justa y trabajadora del colegio mágico
-            </p>
-            <div class="text-end">
-  <button type="button" class="btn btn-hufflepuff py-1 px-5">Ir</button>
-</div>
-          </div>
-        </div>
+      <!-- Encabezado y descripción -->
+      <div class="animales-intro">
+        <h2>🦡Animales de la Naturaleza Mágica🪄</h2>
+        <p>
+          Hufflepuff ha formado a algunos de los magizoólogos más respetados de la
+          historia, entre ellos Newt Scamander. La casa del tejón valora el cuidado,
+          la paciencia y el respeto por toda criatura viva, sin importar cuán
+          peligrosa o incomprendida sea. Conoce algunas de las bestias que forman
+          parte de ese legado.
+        </p>
       </div>
+
+      <!-- Carrusel de criaturas -->
+      <div id="carruselAnimales" class="carousel slide animales-carousel" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carruselAnimales" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Basilisco"></button>
+          <button type="button" data-bs-target="#carruselAnimales" data-bs-slide-to="1" aria-label="Escarbato"></button>
+          <button type="button" data-bs-target="#carruselAnimales" data-bs-slide-to="2" aria-label="Bowtruckle"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+          <div class="carousel-item active">
+            <img src="assets/balisico.jpg" class="d-block w-100" alt="Basilisco">
+            <div class="carousel-caption">
+              <h3>Basilisco</h3>
+              <p>La serpiente gigante conocida como la Reina de las Serpientes. Su mirada es letal y solo teme al canto del fénix y al filo de una espada de plata.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/Escarbato(Niffler).jpg" class="d-block w-100" alt="Escarbato">
+            <div class="carousel-caption">
+              <h3>Escarbato (Niffler)</h3>
+              <p>Pequeña criatura de hocico alargado y bolsa marsupial, atraída de forma irresistible por todo lo que brilla. Un dolor de cabeza para cualquier joyero.</p>
+            </div>
+          </div>
+
+          <div class="carousel-item">
+            <img src="assets/bowtruckle.jpg" class="d-block w-100" alt="Bowtruckle">
+            <div class="carousel-caption">
+              <h3>Bowtruckle</h3>
+              <p>Guardián de los árboles, apenas mide unos centímetros y se camufla entre ramas y hojas. Tímido, pero fiel a quien cuida su árbol.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carruselAnimales" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carruselAnimales" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+
+      </div>
+
     </div>
-  </div>
-
- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
-</html>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="/style.css" />
-  </head>
+  </section>
 
   <body>
     <!-- todo ------  SECCION DE HERBOLOGÍA --------->
