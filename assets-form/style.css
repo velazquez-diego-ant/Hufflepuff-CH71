@@ -1,6 +1,9 @@
 body {
   background-color: #f4f1ea;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.5px;
 }
+
 #img-logo-form {
   width: 150px;
   height: 160px;
@@ -12,27 +15,24 @@ body {
   object-fit: cover;
 }
 
+.faqs {
+  background: linear-gradient(180deg, #121212 0%, #1e1e1e 100%);
+}
+#faqs h2 {
+  /* Aplicar a los títulos de la sección */
+  font-family: "Cinzel";
+  color: #212529 !important; /* Fuerza el color oscuro en el título de FAQs */
+}
 
+.texto-inmediato-faqs {
+  color: #e1a95f !important;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#faqs .accordion-item {
+  background-color: #e1a95f !important; /* Gris oscuro de fondo */
+  margin-bottom: 8px; /* Espaciado entre preguntas */
+  transition: all 0.2s ease;
+}
 
 /**pintamos la card de formulario en el html */
 .card {
@@ -47,7 +47,7 @@ body {
 /**pintamos la card de formulario creada desde el form.js */
 #card-dinamic {
   background-color: #f4f1ea;
-} 
+}
 
 /**pintamos el cuadro donde se imprime imagen para evitar contraste por fondos dispares en el js*/
 #logo-box {
