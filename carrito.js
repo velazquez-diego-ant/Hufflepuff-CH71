@@ -32,20 +32,20 @@ function escapeHTML(str) {
 //*crea la tarjeta html de cada producto del carrito
 function createProductCardHTML(product) {
   return `
-    <div class="card-product">
-      <h3>${escapeHTML(product.name)}</h3>
-      <p><strong>Precio:</strong> $${product.price.toFixed(2)}</p>
-      <p><strong>Cantidad:</strong> ${product.quantity}</p>
+    <div class="card border-0 bg-light">
+      <div class="card-body py-3">
+        <h3 class="h6">${escapeHTML(product.name)}</h3>
+        <p class="mb-1"><strong>Precio:</strong> $${Number(product.price).toFixed(2)}</p>
+        <p class="mb-0"><strong>Cantidad:</strong> ${product.quantity}</p>
+      </div>
     </div>
   `;
 }
 
 //*esperamos a que cargue todo el html antes de buscar sus elementos
 window.addEventListener("DOMContentLoaded", () => {
-  //*buscamos el formulario nuevo o el formulario antiguo de albumes
-  const productForm =
-    document.getElementById("productForm") ||
-    document.getElementById("albumForm");
+  //*buscamos el contenedor que contiene las cards de productos
+  const productList = document.getElementById("productList");
 
   //*buscamos el contenedor nuevo o el contenedor antiguo de albumes
   const cartListContainer =
@@ -74,23 +74,25 @@ window.addEventListener("DOMContentLoaded", () => {
   //*mostramos el contenido guardado al abrir o recargar la pagina
   renderCart();
 
-  //*escuchamos el envio del formulario para añadir productos
-  productForm?.addEventListener("submit", (event) => {
-    //*evitamos que la pagina se recargue al enviar el formulario
-    event.preventDefault();
+  //*escuchamos los clicks de los botones dentro de las cards
+  productList?.addEventListener("click", (event) => {
+    //*buscamos el boton pulsado, aunque este dentro de otro elemento
+    const addButton = event.target.closest(".add-to-cart");
+    if (!addButton) return;
 
-    //*obtenemos los valores escritos en el formulario
-    const formData = new FormData(productForm);
+    //*obtenemos la card que contiene al boton pulsado
+    const productCard = addButton.closest(".product-card");
+    if (!productCard) return;
 
-    //*creamos el objeto basico que representa un producto
+    //*leemos los datos del producto desde los atributos data-* de la card
     const product = {
-      id: Date.now(),
-      name: formData.get("name") || formData.get("productName"),
-      price: Number(formData.get("price")) || 0,
-      quantity: Number(formData.get("quantity")) || 1,
+      id: productCard.dataset.id,
+      name: productCard.dataset.name,
+      price: Number(productCard.dataset.price) || 0,
+      quantity: 1,
     };
 
-    //*si el producto no tiene nombre, no lo añadimos
+    //*si la card no tiene nombre, no añadimos el producto
     if (!product.name) return;
 
     //*añadimos el producto al array del carrito
@@ -99,9 +101,8 @@ window.addEventListener("DOMContentLoaded", () => {
     //*guardamos el carrito actualizado para mantener la persistencia
     setLocalStorage(CART_STORAGE_KEY, cart);
 
-    //*actualizamos la vista y limpiamos el formulario
+    //*actualizamos la vista del carrito
     renderCart();
-    productForm.reset();
   });
 
   //*escuchamos el click del boton de compra
