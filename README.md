@@ -41,7 +41,7 @@ El proyecto combina diseño atractivo, experiencia de usuario intuitiva y compon
 
 ---
 
-## 🛒 2. Galería de Productos / Grid de Catálogo
+##  2. Galería de Productos / Grid de Catálogo
 
 **Integrantes responsables:**
 - Adrian Beltran
@@ -59,7 +59,7 @@ Ejemplos de productos:
 - Plantas de Hufflepuff 
 ---
 
-## 📦 3. Ficha / Vista Rápida del Producto
+##  3. Ficha / Vista Rápida del Producto
 
 ### Funcionalidad:
 - Visualización detallada de cada producto.
@@ -84,7 +84,7 @@ Ejemplos de productos:
 
 ---
 
-## 🪄 5. Reclutamiento
+##  5. Reclutamiento
 
 **Integrantes responsables:**
 - Jaime Alexis Velázquez Rayón
@@ -104,12 +104,12 @@ La identidad visual del proyecto está basada en tonos cálidos inspirados en Hu
 
 | Color | Código |
 |------|--------|
-| 💛 Hufflepuff Yellow | `#FBB017` |
-| ⚫ Charcoal Black | `#1D1D1D` |
-| 🤍 Warm Creme | `#FBF9F1` |
-| 🟤 Deep Umber | `#8D6E63` |
-| 🟡 Honey Gold | `#E1A95F` |
-| ⚪ Off-White | `#FFFFFF` |
+|  Hufflepuff Yellow | `#FBB017` |
+|  Charcoal Black | `#1D1D1D` |
+|  Warm Creme | `#FBF9F1` |
+|  Deep Umber | `#8D6E63` |
+|  Honey Gold | `#E1A95F` |
+|  Off-White | `#FFFFFF` |
 
 ---
 
