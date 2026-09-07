@@ -1,8 +1,27 @@
-body {
-  background:color#FBF9F1 
+:root {
+    --ink: #1A1A1A;
+    --paper: #FBF9F1;
+    --line: #E5E5E5;
+    --muted: #6B6B6B;
+    --gold: #B9975B;
+    --gold-hover: #A2824C;
+    --panel: #F4F6F8;
 }
 
-.carousel {
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- ASLAN ---------- */
+#carouselAlumnos {
   max-width: 400px;
   margin: 0 auto;
   border: 2px solid #ecb939;
@@ -10,13 +29,14 @@ body {
   overflow: hidden;
 }
 
-.carousel-item img {
+#carouselAlumnos .carousel-item img {
   height: 500px;
   width: 100%;
   object-fit: cover;
-object-position: center 20%;
+  object-position: center 20%;
 }
-.carousel-caption {
+
+#carouselAlumnos .carousel-caption {
   background-color: rgba(251, 249, 241, 0.85);
   border-top: 2px solid #ecb939;
   color: #372e29;
@@ -25,7 +45,20 @@ object-position: center 20%;
   padding: 10px;
 }
 
+#carouselAlumnos .carousel-indicators button {
+  background-color: #ecb939 !important;
+}
 
+/* ---------- SECCIÓN HERBOLOGÍA ASLAN ---------- */
+#title-herb {
+    background-color: #E1A95f;
+    padding: 15px;
+    color: #1D1D1D;
+    text-align: center;
+    margin: 20px;
+    border-radius: 20px;
+    font-family: 'Cinzel Decorative', serif;
+}
 
 .carousel-indicators button {
   background-color: #ecb939 !important;
@@ -182,37 +215,37 @@ body {
     font-size: 1.05rem;
 }
 
-/* ---------- CONFIRMACIÓN DE COMPRA ---------- */
-.purchase-success {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #198754;
-}
-
-.purchase-check {
-    display: inline-grid;
-    width: 1.6rem;
-    height: 1.6rem;
-    place-items: center;
-    border: 2px solid #198754;
-    border-radius: 50%;
-    font-weight: 700;
-    animation: purchase-check-pop 0.45s ease-out both;
-}
-
-@keyframes purchase-check-pop {
-    0% {
-        opacity: 0;
-        transform: scale(0.3) rotate(-20deg);
+    /* ---------- CONFIRMACIÓN DE COMPRA ---------- */
+    .purchase-success {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #198754;
     }
 
-    70% {
-        transform: scale(1.15) rotate(5deg);
+    .purchase-check {
+        display: inline-grid;
+        width: 1.6rem;
+        height: 1.6rem;
+        place-items: center;
+        border: 2px solid #198754;
+        border-radius: 50%;
+        font-weight: 700;
+        animation: purchase-check-pop 0.45s ease-out both;
     }
 
-    100% {
-        opacity: 1;
-        transform: scale(1) rotate(0);
+    @keyframes purchase-check-pop {
+        0% {
+            opacity: 0;
+            transform: scale(0.3) rotate(-20deg);
+        }
+
+        70% {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1) rotate(0);
+        }
     }
-}
