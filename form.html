@@ -80,13 +80,36 @@
                                     placeholder="Ej. 9" min="0" max="10" required>
                             </div>
 
+                            <!--? 6. Equipo de seguridad -->
+                            <div class="mb-4 form-check">
+                                <input name="equipo" type="checkbox" class="form-check-input" id="check-equipo">
+                                <label class="form-check-label" for="check-equipo">¿Ya cuentas con varita, lechuza y equipo de seguridad?</label>
+                            </div>
 
+                            <!--? Botón de envío -->
+                            <button name="submit" type="submit" class="btn btn-primary w-100 py-2">Enviar Lechuza 🦉</button>
                         </form>
                     </div>
                 </div>
             </div>
 
+            <!--? COLUMNA DERECHA: CARDS PARA ALUMNOS -->
+            <div class="col-lg-6">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-body p-4">
+                        <h3 class="card-title mb-4 text-primary">Alumnos Registrados</h3>
 
+                        <div class="d-flex flex-column gap-3">
+                            <main id="album-container" class="d-flex flex-column gap-3">
+                                <!--? Aquí se inyectarán dinámicamente las cards de alumnos -->
+                            </main>
+                            <div class="text-center text-muted py-4">
+                                <p class="mb-0">Los nuevos alumnos que registres aparecerán aquí.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
