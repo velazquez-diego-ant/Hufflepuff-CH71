@@ -25,4 +25,34 @@ body {
 .imgCriaturas {
     height: 350px;
     width: 355px;
+body{
+    background-color: #FBF9F1;
+}
+
+
+#title-herb{
+    background-color: #E1A95f;
+    padding: 15px;
+;
+    color: #1D1D1D;
+    text-align: center;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.div-carrusel{
+    margin: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.descripcion-img{
+    background-color: #39572a;
+    color: #e2e2e2;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+.planta{
+    
 }
