@@ -1,0 +1,67 @@
+/* =========================================================
+   1. DEFINICIÓN DE LA PALETA DE COLORES (Variables CSS)
+   ========================================================= */
+:root {
+  --yellow: #FBB017;       /* Amarillo principal */
+  --black: #1d1d1d;        /* Negro para textos y detalles */
+  --honey-gold: #D48C11;   /* Dorado miel para acentos */
+  --warm-cream: #F4EAD3;   /* Crema cálido para el pie de tarjeta y bordes */
+  --off-white: #FAF8F5;    /* Blanco hueso para el fondo general */
+}
+
+/* =========================================================
+   2. ESTILOS GENERALES
+   ========================================================= */
+body {
+  background-color: var(--off-white);
+  color: var(--black);
+  font-family: Arial, sans-serif;
+}
+
+/* Título principal de la página */
+h1 {
+  color: var(--black);
+  border-bottom: 4px solid var(--yellow);
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* =========================================================
+   3. ESTILOS DE LAS TARJETAS (CARDS)
+   ========================================================= */
+.card {
+  background-color: #ffffff;
+  border: 2px solid var(--warm-cream); /* Borde crema cálido */
+  border-radius: 10px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+/* Efecto hover al pasar el ratón */
+.card:hover {
+  transform: translateY(-5px); /* Eleva la tarjeta */
+  border-color: var(--yellow);  /* Cambia el borde a amarillo */
+}
+
+/* Estilo para las imágenes de las tarjetas */
+.card-img-top {
+  height: 180px;
+  object-fit: cover; /* Recorta la imagen para que no se deforme */
+}
+
+/* Estilo del título de cada tarjeta */
+.card-title {
+  color: var(--black);
+  font-weight: bold;
+}
+
+/* Estilo del texto de categoría */
+.text-honey {
+  color: var(--honey-gold);
+  font-weight: bold;
+}
+
+/* Estilo del pie de la tarjeta */
+.card-footer {
+  background-color: var(--warm-cream);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
