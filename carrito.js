@@ -1,379 +1,210 @@
-// =====================================================
-// LOCAL STORAGE
-// =====================================================
 
-// Guarda información en localStorage
-const setLocalStorage = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
+// Función para obtener el carrito del localStorage
+const getCart = () => {
+    const cart = localStorage.getItem('shoppingCart');
+    return cart ? JSON.parse(cart) : [];
 };
 
-// Obtiene información de localStorage
-const getItemStorage = (key) => {
-  const data = localStorage.getItem(key);
-
-  // Si no existe información, regresamos un array vacío
-  if (!data) return [];
-
-  try {
-    const parsedData = JSON.parse(data);
-
-    // Nos aseguramos de que sea un array
-    return Array.isArray(parsedData) ? parsedData : [];
-  } catch {
-    return [];
-  }
+// Función para guardar el carrito en localStorage
+const saveCart = (cart) => {
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
 };
 
-// Nombre de la variable utilizada en localStorage
-const CART_STORAGE_KEY = "cart";
-
-// =====================================================
-// SEGURIDAD
-// =====================================================
-
-// Evita que los textos de los productos
-// sean interpretados como HTML
-function escapeHTML(str) {
-  return String(str ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-// =====================================================
-// CREAR PRODUCTO DEL CARRITO
-// =====================================================
-
-function createProductCardHTML(product) {
-  return `
-
-    <div
-      class="cart-item"
-      data-id="${escapeHTML(product.id)}"
-    >
-
-      <div class="cart-item-img"></div>
-
-
-      <div class="cart-item-info">
-
-        <h3>
-          ${escapeHTML(product.name)}
-        </h3>
-
-        <p class="muted">
-          Producto de la tienda
-        </p>
-
-
-        <div class="qty-control">
-
-          <button
-            type="button"
-            class="decrease-quantity"
-            aria-label="Restar"
-          >
-            −
-          </button>
-
-
-          <span>
-            ${product.quantity}
-          </span>
-
-
-          <button
-            type="button"
-            class="increase-quantity"
-            aria-label="Sumar"
-          >
-            +
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="cart-item-price">
-
-        $${(Number(product.price) * product.quantity).toFixed(2)}
-
-      </div>
-
-
-      <button
-        type="button"
-        class="cart-item-remove"
-        aria-label="Eliminar"
-      >
-        ×
-      </button>
-
-    </div>
-
-  `;
-}
-
-// =====================================================
-// CUANDO CARGA LA PÁGINA
-// =====================================================
-
-window.addEventListener("DOMContentLoaded", () => {
-  // ===================================================
-  // ELEMENTOS DEL DOM
-  // ===================================================
-
-  const productList = document.getElementById("productList");
-
-  const cartList = document.getElementById("cartList");
-
-  const cartEmpty = document.getElementById("cart-empty");
-
-  const cartFull = document.getElementById("cart-full");
-
-  const subtotalElement = document.getElementById("cart-subtotal");
-
-  const totalElement = document.getElementById("cart-total");
-
-  const checkoutButton = document.getElementById("checkoutButton");
-
-  const purchaseMessage = document.getElementById("purchaseMessage");
-
-  // ===================================================
-  // RECUPERAR CARRITO
-  // ===================================================
-
-  let cart = getItemStorage(CART_STORAGE_KEY);
-
-  // ===================================================
-  // MOSTRAR CARRITO
-  // ===================================================
-
-  const renderCart = () => {
-    // Si estamos en test.html no hacemos nada
-    // porque esa página no tiene cartList
-    if (!cartList) return;
-
-    // ===============================================
-    // CARRITO VACÍO
-    // ===============================================
-
-    if (cart.length === 0) {
-      cartEmpty?.classList.remove("d-none");
-
-      cartFull?.classList.add("d-none");
-
-      return;
-    }
-
-    // ===============================================
-    // CARRITO CON PRODUCTOS
-    // ===============================================
-
-    cartEmpty?.classList.add("d-none");
-
-    cartFull?.classList.remove("d-none");
-
-    // Pintamos los productos
-    cartList.innerHTML = cart.map(createProductCardHTML).join("");
-
-    // ===============================================
-    // CALCULAR SUBTOTAL
-    // ===============================================
-
-    const subtotal = cart.reduce((total, product) => {
-      return total + Number(product.price) * Number(product.quantity);
-    }, 0);
-
-    // Mostramos subtotal
-    if (subtotalElement) {
-      subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
-    }
-
-    // ===============================================
-    // CALCULAR TOTAL
-    // ===============================================
-
-    if (totalElement) {
-      totalElement.textContent = `$${subtotal.toFixed(2)}`;
-    }
-  };
-
-  // ===================================================
-  // MOSTRAR EL CARRITO AL ABRIR carrito.html
-  // ===================================================
-
-  renderCart();
-
-  // ===================================================
-  // AGREGAR PRODUCTOS DESDE test.html
-  // ===================================================
-
-  productList?.addEventListener("click", (event) => {
-    // Buscamos el botón presionado
-    const addButton = event.target.closest(".add-to-cart");
-
-    if (!addButton) return;
-
-    // Buscamos la tarjeta del producto
-    const productCard = addButton.closest(".product-card");
-
-    if (!productCard) return;
-
-    // =============================================
-    // OBTENER INFORMACIÓN DEL PRODUCTO
-    // =============================================
-
-    const product = {
-      id: productCard.dataset.id,
-
-      name: productCard.dataset.name,
-
-      price: Number(productCard.dataset.price) || 0,
-
-      quantity: 1,
-    };
-
-    // Si no tiene nombre no lo agregamos
-    if (!product.name) return;
-
-    // =============================================
-    // BUSCAR SI EL PRODUCTO YA EXISTE
-    // =============================================
-
-    const existingProduct = cart.find((item) => item.id === product.id);
-
-    // Si ya existe aumentamos su cantidad
+// ==================== FUNCIONES PARA AGREGAR PRODUCTOS ====================
+
+// Función para agregar productos al carrito (desde la página de productos)
+const addToCart = (productData) => {
+    let cart = getCart();
+    
+    const existingProduct = cart.find(item => item.id === productData.id);
+    
     if (existingProduct) {
-      existingProduct.quantity += 1;
+        existingProduct.quantity += 1;
     } else {
-      // Si no existe lo agregamos
-      cart.push(product);
+        productData.quantity = 1;
+        cart.push(productData);
     }
+    
+    saveCart(cart);
+    alert(`¡${productData.name} agregado al carrito!`);
+};
 
-    // =============================================
-    // GUARDAR CARRITO
-    // =============================================
-
-    setLocalStorage(CART_STORAGE_KEY, cart);
-
-    console.log("Producto agregado:", product);
-  });
-
-  // ===================================================
-  // CONTROLES DEL CARRITO
-  // ===================================================
-
-  cartList?.addEventListener("click", (event) => {
-    // Buscamos el elemento .cart-item
-    const cartItem = event.target.closest(".cart-item");
-
-    if (!cartItem) return;
-
-    // ID del producto
-    const productId = cartItem.dataset.id;
-
-    // Producto correspondiente
-    const product = cart.find((item) => item.id === productId);
-
-    if (!product) return;
-
-    // =============================================
-    // AUMENTAR CANTIDAD
-    // =============================================
-
-    if (event.target.closest(".increase-quantity")) {
-      product.quantity += 1;
+// Manejar el clic en el botón "Añadir al carrito"
+const handleAddToCart = (event) => {
+    const button = event.target;
+    const productCard = button.closest('.product-card');
+    
+    if (productCard) {
+        const product = {
+            id: productCard.dataset.id,
+            name: productCard.dataset.name,
+            price: parseFloat(productCard.dataset.price)
+        };
+        
+        addToCart(product);
     }
+};
 
-    // =============================================
-    // DISMINUIR CANTIDAD
-    // =============================================
+// ==================== FUNCIONES PARA RENDERIZAR EL CARRITO ====================
 
-    if (event.target.closest(".decrease-quantity")) {
-      product.quantity -= 1;
-
-      // Si llega a cero,
-      // eliminamos el producto
-      if (product.quantity <= 0) {
-        cart = cart.filter((item) => item.id !== productId);
-      }
-    }
-
-    // =============================================
-    // ELIMINAR PRODUCTO
-    // =============================================
-
-    if (event.target.closest(".cart-item-remove")) {
-      cart = cart.filter((item) => item.id !== productId);
-    }
-
-    // =============================================
-    // ACTUALIZAR LOCAL STORAGE
-    // =============================================
-
-    if (cart.length > 0) {
-      setLocalStorage(CART_STORAGE_KEY, cart);
-    } else {
-      localStorage.removeItem(CART_STORAGE_KEY);
-    }
-
-    // =============================================
-    // ACTUALIZAR PANTALLA
-    // =============================================
-
-    renderCart();
-  });
-
-  // ===================================================
-  // FINALIZAR COMPRA
-  // ===================================================
-
-  checkoutButton?.addEventListener("click", (event) => {
-    // Evitamos comportamiento por defecto
-    event.preventDefault();
-
-    // =============================================
-    // VERIFICAR SI EL CARRITO ESTÁ VACÍO
-    // =============================================
-
-    if (cart.length === 0) {
-      return;
-    }
-
-    // =============================================
-    // MOSTRAR EN CONSOLA LA COMPRA
-    // =============================================
-
-    console.log("Compra realizada:", cart);
-
-    // =============================================
-    // VACIAR EL ARRAY
-    // =============================================
-
-    cart = [];
-
-    // =============================================
-    // BORRAR CARRITO DEL LOCAL STORAGE
-    // =============================================
-
-    localStorage.removeItem(CART_STORAGE_KEY);
-
-    // =============================================
-    // ACTUALIZAR LA VISTA
-    // =============================================
-
-    renderCart();
-
-    // =============================================
-    // MOSTRAR MENSAJE
-    // =============================================
-
+// Renderizar los productos del carrito
+const renderCart = () => {
+    const cart = getCart();
+    const cartList = document.getElementById('cartList');
+    const cartEmpty = document.getElementById('cart-empty');
+    const cartFull = document.getElementById('cart-full');
+    const cartSubtotal = document.getElementById('cart-subtotal');
+    const cartTotal = document.getElementById('cart-total');
+    const purchaseMessage = document.getElementById('purchaseMessage');
+    
+    // Limpiar mensaje anterior
     if (purchaseMessage) {
-      purchaseMessage.textContent = "Compra realizada con éxito.";
+        purchaseMessage.textContent = '';
+        purchaseMessage.className = 'text-success fw-semibold mt-3 mb-0';
     }
-  });
+    
+    // Condicional: Verificar si el carrito está vacío
+    if (cart.length === 0) {
+        // Mostrar carrito vacío
+        if (cartEmpty) cartEmpty.classList.remove('d-none');
+        if (cartFull) cartFull.classList.add('d-none');
+        return;
+    }
+    
+    // Mostrar carrito con productos
+    if (cartEmpty) cartEmpty.classList.add('d-none');
+    if (cartFull) cartFull.classList.remove('d-none');
+    
+    // Bucle: Calcular el total usando reduce
+    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+    const total = subtotal; // En este caso no hay envío adicional
+    
+    // Actualizar resumen
+    if (cartSubtotal) cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+    if (cartTotal) cartTotal.textContent = `$${total.toFixed(2)}`;
+    
+    // Generar HTML para los productos usando la estructura de tus estilos
+    let html = '';
+    
+    // Bucle: Recorrer todos los productos del carrito
+    for (let i = 0; i < cart.length; i++) {
+        const item = cart[i];
+        html += `
+            <div class="cart-item" data-id="${item.id}">
+                <div class="cart-item-info" style="flex: 1;">
+                    <h3>${item.name}</h3>
+                    <p class="muted">Precio unitario: $${item.price.toFixed(2)}</p>
+                </div>
+                <div class="qty-control">
+                    <button class="quantity-btn" data-action="decrease" data-id="${item.id}">−</button>
+                    <span>${item.quantity}</span>
+                    <button class="quantity-btn" data-action="increase" data-id="${item.id}">+</button>
+                </div>
+                <div class="cart-item-price">$${(item.price * item.quantity).toFixed(2)}</div>
+                <button class="cart-item-remove remove-btn" data-id="${item.id}">✕</button>
+            </div>
+        `;
+    }
+    
+    if (cartList) cartList.innerHTML = html;
+    
+    // Agregar event listeners a los botones de cantidad y eliminar
+    document.querySelectorAll('.quantity-btn').forEach(btn => {
+        btn.addEventListener('click', handleQuantityChange);
+    });
+    
+    document.querySelectorAll('.remove-btn').forEach(btn => {
+        btn.addEventListener('click', handleRemoveItem);
+    });
+};
+
+// ==================== FUNCIONES PARA MANIPULAR EL CARRITO ====================
+
+// Manejar cambios de cantidad
+const handleQuantityChange = (event) => {
+    const button = event.target;
+    const action = button.dataset.action;
+    const productId = button.dataset.id;
+    
+    let cart = getCart();
+    const product = cart.find(item => item.id === productId);
+    
+    if (product) {
+        if (action === 'increase') {
+            product.quantity += 1;
+        } else if (action === 'decrease') {
+            product.quantity -= 1;
+            if (product.quantity === 0) {
+                cart = cart.filter(item => item.id !== productId);
+            }
+        }
+        
+        saveCart(cart);
+        renderCart();
+    }
+};
+
+// Manejar eliminación de productos
+const handleRemoveItem = (event) => {
+    const button = event.target;
+    const productId = button.dataset.id;
+    
+    if (confirm('¿Deseas eliminar este producto del carrito?')) {
+        let cart = getCart();
+        cart = cart.filter(item => item.id !== productId);
+        saveCart(cart);
+        renderCart();
+    }
+};
+
+// ==================== FUNCIÓN PARA FINALIZAR COMPRA ====================
+
+// Finalizar compra
+const handleCheckout = () => {
+    const cart = getCart();
+    const purchaseMessage = document.getElementById('purchaseMessage');
+    
+    if (cart.length === 0) {
+        if (purchaseMessage) {
+            purchaseMessage.textContent = 'El carrito está vacío. Agrega productos primero.';
+            purchaseMessage.className = 'text-danger fw-semibold mt-3 mb-0';
+        }
+        return;
+    }
+    
+    if (confirm('¿Deseas finalizar la compra?')) {
+        localStorage.removeItem('shoppingCart');
+        renderCart();
+        
+        if (purchaseMessage) {
+            purchaseMessage.textContent = '¡Compra finalizada con éxito! Gracias por tu pedido.';
+            purchaseMessage.className = 'text-success fw-semibold mt-3 mb-0';
+        }
+    }
+};
+
+// ==================== INICIALIZACIÓN ====================
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    // Si existe productList, estamos en la página de productos
+    const productList = document.getElementById('productList');
+    if (productList) {
+        const addButtons = document.querySelectorAll('.add-to-cart');
+        addButtons.forEach(button => {
+            button.addEventListener('click', handleAddToCart);
+        });
+    }
+    
+    // Si existe cartList, estamos en la página del carrito
+    const cartList = document.getElementById('cartList');
+    if (cartList) {
+        renderCart();
+        
+        // Agregar evento al botón de finalizar compra
+        const checkoutButton = document.getElementById('checkoutButton');
+        if (checkoutButton) {
+            checkoutButton.addEventListener('click', handleCheckout);
+        }
+    }
 });
