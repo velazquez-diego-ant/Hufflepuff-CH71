@@ -1,0 +1,282 @@
+:root {
+    --ink: #1A1A1A;
+    --paper: #FBF9F1;
+    --line: #E5E5E5;
+    --muted: #6B6B6B;
+    --gold: #B9975B;
+    --gold-hover: #A2824C;
+    --panel: #F4F6F8;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Cinzel", serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- ASLAN ---------- */
+#carouselAlumnos {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 2px solid #ecb939;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#carouselAlumnos .carousel-item img {
+  height: 500px;
+  width: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+#carouselAlumnos .carousel-caption {
+  background-color: rgba(251, 249, 241, 0.85);
+  border-top: 2px solid #ecb939;
+  color: #372e29;
+  font-family: 'Cinzel Decorative', serif;
+  bottom: 10px;
+  padding: 10px;
+}
+
+#carouselAlumnos .carousel-indicators button {
+  background-color: #ecb939 !important;
+}
+
+/* ---------- SECCIÓN HERBOLOGÍA ASLAN ---------- */
+#title-herb {
+    background-color: #E1A95f;
+    padding: 15px;
+    color: #1D1D1D;
+    text-align: center;
+    margin: 20px;
+    border-radius: 20px;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+.carousel-indicators button {
+  background-color: #ecb939 !important;
+}
+
+:root {
+    --ink: #1A1A1A;
+    /* texto principal, casi negro */
+    --paper: #FFFFFF;
+    /* fondo general */
+    --line: #E5E5E5;
+    /* bordes/divisores suaves */
+    --muted: #6B6B6B;
+    /* texto secundario */
+    --gold: #B9975B;
+    /* acento dorado, botones y línea del top bar */
+    --gold-hover: #A2824C;
+    --panel: #F4F6F8;
+    /* fondo de tarjetas de producto */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Cinzel", serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ---------- BOTÓN DORADO ---------- */
+.btn-gold {
+    background: var(--gold);
+    color: #1A1A1A;
+    border: none;
+    border-radius: 4px;
+    font-weight: 600;
+    padding: 0.75rem 1.75rem;
+}
+
+.btn-gold:hover {
+    background: var(--gold-hover);
+    color: #1A1A1A;
+}
+
+/* ---------- ESTADOS DEL CARRITO ---------- */
+.cart-state {
+    padding: 5.5rem 0;
+}
+
+.cart-state h1 {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+/* -- carrito con productos -- */
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.cart-item-img {
+    width: 84px;
+    height: 84px;
+    border-radius: 10px;
+    background: var(--panel);
+    flex-shrink: 0;
+}
+
+.cart-item-info {
+    flex: 1;
+}
+
+.cart-item-info h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.2rem;
+}
+
+.cart-item-info .muted {
+    font-size: 0.85rem;
+    margin: 0 0 0.6rem;
+}
+
+.qty-control {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+
+.qty-control button {
+    background: none;
+    border: none;
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+}
+
+.qty-control span {
+    min-width: 28px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.cart-item-price {
+    font-weight: 600;
+    min-width: 90px;
+    text-align: right;
+}
+
+.cart-item-remove {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    color: var(--muted);
+    line-height: 1;
+    padding: 0 0.25rem;
+}
+
+.cart-item-remove:hover {
+    color: #a11;
+}
+
+.order-summary {
+    background: var(--panel);
+    border-radius: 12px;
+    padding: 1.6rem;
+}
+
+.order-summary h3 {
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.92rem;
+    margin-bottom: 0.6rem;
+}
+
+.summary-row.total {
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+/* ---------- ESTILOS GENERALES DEL SITIO ---------- */
+.navbar-hufflepuff {
+    background-color: #1D1D1D;
+}
+
+.navbar-hufflepuff .navbar-brand,
+.navbar-hufflepuff .nav-link {
+    color: #E1A95F;
+}
+
+.card-criaturas {
+    background-color: #9F8278;
+}
+
+.btn-hufflepuff {
+    background-color: #FBB017;
+    border-color: #FBB017;
+    color: #1D1D1D;
+}
+
+.imgCriaturas {
+    height: 350px;
+    width: 355px;
+    object-fit: cover;
+}
+
+.alumnos-title {
+    color: #372E29;
+    font-family: "Cinzel Decorative", serif;
+}
+
+    /* ---------- CONFIRMACIÓN DE COMPRA ---------- */
+    .purchase-success {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: #198754;
+    }
+
+    .purchase-check {
+        display: inline-grid;
+        width: 1.6rem;
+        height: 1.6rem;
+        place-items: center;
+        border: 2px solid #198754;
+        border-radius: 50%;
+        font-weight: 700;
+        animation: purchase-check-pop 0.45s ease-out both;
+    }
+
+    @keyframes purchase-check-pop {
+        0% {
+            opacity: 0;
+            transform: scale(0.3) rotate(-20deg);
+        }
+
+        70% {
+            transform: scale(1.15) rotate(5deg);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1) rotate(0);
+        }
+    }

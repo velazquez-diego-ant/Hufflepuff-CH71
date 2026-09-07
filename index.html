@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bienvenido a Hufflepuff</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-hufflepuff">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="assets/logo.jpeg"
+            alt="Logo Hufflepuff"
+            width="50"
+            height="50"
+            class="me-2 rounded-circle"
+          />
+          Hufflepuff
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Abrir navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#alumnos">Sobre Hufflepuff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#animales">Tienda Animales</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#herbologia"
+                >Tienda herbolaria</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="carrito.html">Carrito 🛒</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- TIENDA DE ANIMALES -->
+    <section id="animales" class="container-fluid mt-4 px-0">
+      <div class="card card-criaturas text-white">
+        <div class="row g-0 align-items-center">
+          <div
+            class="col-md-5 d-flex justify-content-center align-items-center"
+          >
+            <img
+              src="assets/Animales.jpg"
+              class="img-fluid rounded-circle imgCriaturas shadow"
+              alt="Animales mágicos"
+            />
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h2 class="card-title">🪄 Tienda animales 🦡</h2>
+              <p class="card-text">
+                Conoce a los fascinantes animales mágicos de Hufflepuff, la casa
+                más inclusiva, justa y trabajadora del colegio mágico.
+              </p>
+              <div class="text-end">
+                <button type="button" class="btn btn-hufflepuff py-1 px-5">
+                  Ir
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERBOLOGÍA -->
+    <section id="herbologia">
+      <div id="title-herb">
+        <h2><b>HERBOLOGIA</b></h2>
+        <p>
+          Explora nuestro catálogo de botánica mágica y cultiva la excelencia de
+          Hufflepuff en tu propio espacio. Desde brotes de Mandrágora hasta
+          ejemplares seleccionados de Acónito y Brincador, encuentra ejemplares
+          con propiedades únicas listos para enviar directo a tu caldero.
+          Paciencia, dedicación y la mejor calidad botánica al alcance de un
+          clic.
+        </p>
+      </div>
+
+      <div id="carouselExampleCaptions" class="carousel slide div-carrusel">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="cards.html"
+              ><img
+                src="assets/aconito.jpg"
+                class="d-block w-100"
+                alt="Acónito"
+            /></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h3 class="planta">Acónito</h3>
+              <p class="descripcion-img">
+                <b
+                  >Ingrediente clave de la poción Matalobos para controlar a los
+                  hombres lobo.</b
+                >
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <a href="cards.html"
+              ><img
+                src="assets/brincador.jpg"
+                class="d-block w-100"
+                alt="Brincador"
+            /></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h3 class="planta">Brincador</h3>
+              <p class="descripcion-img">
+                <b>Con el brincador, puedes crear una poción para Encoger.</b>
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <a href="cards.html"
+              ><img
+                src="assets/mandragora.jpg"
+                class="d-block w-100"
+                alt="Mandrágora"
+            /></a>
+            <div class="carousel-caption d-none d-md-block">
+              <h3 class="planta">Mandrágora</h3>
+              <p class="descripcion-img">
+                <b
+                  >Su jugo restaurador es el ingrediente principal del filtro
+                  para despetrificar.</b
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span
+          ><span class="visually-hidden">Anterior</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselExampleCaptions"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span
+          ><span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ALUMNOS DESTACADOS -->
+    <section id="alumnos" class="container py-5">
+      <h2 class="text-center alumnos-title">
+        🦡 Nuestros Alumnos Destacados ✨
+      </h2>
+      <div id="carouselAlumnos" class="carousel slide">
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselAlumnos"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselAlumnos"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselAlumnos"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              src="https://i.pinimg.com/1200x/90/15/7f/90157fadba393e586f8248d897877038.jpg"
+              class="d-block w-100"
+              alt="Cedric Diggory"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Cedric Diggory</h3>
+              <p>
+                Capitán del equipo de Quidditch de Hufflepuff y campeón de
+                Hogwarts.
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://i.pinimg.com/736x/89/72/cd/8972cda041435fb4833280f34f14a9ff.jpg"
+              class="d-block w-100"
+              alt="Newt Scamander"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Newt Scamander</h3>
+              <p>Renombrado magizoologista y autor de Animales fantásticos.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img
+              src="https://i.pinimg.com/736x/21/dd/c7/21ddc7d4f526e99dda801318c497812.jpg"
+              class="d-block w-100"
+              alt="Nymphadora Tonks"
+            />
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Nymphadora Tonks</h3>
+              <p>
+                Metamorfomaga, miembro de la Orden del Fénix y gran aventurera.
+              </p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselAlumnos"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span
+          ><span class="visually-hidden">Anterior</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselAlumnos"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span
+          ><span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
+    </section>
+
+    <footer
+      class="container py-5 text-secondary border-top border-secondary border-opacity-25"
+    >
+      <p class="small">
+        🦡 Hufflepuff © 2026 CH71 Todos los derechos reservados.
+      </p>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

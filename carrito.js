@@ -1,90 +1,84 @@
-//*ponemos todo en el locastorage
-const setLocalStorage = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
+// Obtiene el carrito guardado en localStorage
+const getCart = () => {
+  const savedCart = localStorage.getItem("shoppingCart");
+  return savedCart ? JSON.parse(savedCart) : [];
 };
 
-//*obtiene los items y los mete en un array
-const getItemStorage = (key) => {
-  const data = localStorage.getItem(key);
-  if (!data) return [];
-
-  try {
-    const parsedData = JSON.parse(data);
-    return Array.isArray(parsedData) ? parsedData : [];
-  } catch {
-    return [];
-  }
+// Guarda el carrito actualizado en localStorage
+const saveCart = (cart) => {
+  localStorage.setItem("shoppingCart", JSON.stringify(cart));
 };
 
-//*nombre que usaremos para guardar el carrito
-const CART_STORAGE_KEY = "cart";
-
-//*evita que los textos introducidos por el usuario rompan el html
-function escapeHTML(str) {
-  return String(str ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-}
-
-//*crea la tarjeta html de cada producto del carrito
-function createProductCardHTML(product) {
-  return `
-    <div class="card border-0 bg-light">
-      <div class="card-body py-3">
-        <h3 class="h6">${escapeHTML(product.name)}</h3>
-        <p class="mb-1"><strong>Precio:</strong> $${Number(product.price).toFixed(2)}</p>
-        <p class="mb-0"><strong>Cantidad:</strong> ${product.quantity}</p>
+// Crea el HTML de cada producto que aparece en el carrito
+const createProductCardHTML = (product) => `
+  <div class="cart-item" data-id="${product.id}">
+    <div class="cart-item-img"></div>
+    <div class="cart-item-info">
+      <h3>${product.name}</h3>
+      <p class="muted">Producto de la tienda</p>
+      <div class="qty-control">
+        <button type="button" class="decrease-quantity" aria-label="Restar">−</button>
+        <span>${product.quantity}</span>
+        <button type="button" class="increase-quantity" aria-label="Sumar">+</button>
       </div>
     </div>
-  `;
-}
+    <div class="cart-item-price">
+      $${(Number(product.price) * Number(product.quantity)).toFixed(2)}
+    </div>
+    <button type="button" class="cart-item-remove" aria-label="Eliminar">×</button>
+  </div>
+`;
 
-//*esperamos a que cargue todo el html antes de buscar sus elementos
+// Espera a que el HTML este cargado antes de buscar sus elementos
 window.addEventListener("DOMContentLoaded", () => {
-  //*buscamos el contenedor que contiene las cards de productos
   const productList = document.getElementById("productList");
-
-  //*buscamos el contenedor nuevo o el contenedor antiguo de albumes
-  const cartListContainer =
-    document.getElementById("cartList") || document.getElementById("albumList");
-
-  //*buscamos el boton que finaliza la compra
-  const submitButton = document.querySelector(".subtim");
-
-  //*buscamos un elemento donde mostrar el mensaje de compra
+  const cartList = document.getElementById("cartList");
+  const cartEmpty = document.getElementById("cart-empty");
+  const cartFull = document.getElementById("cart-full");
+  const subtotalElement = document.getElementById("cart-subtotal");
+  const totalElement = document.getElementById("cart-total");
+  const checkoutButton = document.getElementById("checkoutButton");
   const purchaseMessage = document.getElementById("purchaseMessage");
+  let cart = getCart();
 
-  //*recuperamos el carrito guardado o creamos uno vacio
-  let cart = getItemStorage(CART_STORAGE_KEY);
-
-  //*pinta todos los productos guardados en el contenedor del carrito
+  // Muestra el estado actual del carrito y calcula sus totales
   const renderCart = () => {
-    //*si no existe el contenedor, no hacemos nada
-    if (!cartListContainer) return;
+    if (!cartList) return;
 
-    //*mostramos los productos o indicamos que el carrito esta vacio
-    cartListContainer.innerHTML = cart.length
-      ? cart.map(createProductCardHTML).join("")
-      : '<p class="empty-cart">El carrito está vacío.</p>';
+    if (cart.length === 0) {
+      cartEmpty?.classList.remove("d-none");
+      cartFull?.classList.add("d-none");
+      if (subtotalElement) subtotalElement.textContent = "$0.00";
+      if (totalElement) totalElement.textContent = "$0.00";
+      return;
+    }
+
+    cartEmpty?.classList.add("d-none");
+    cartFull?.classList.remove("d-none");
+    cartList.innerHTML = cart.map(createProductCardHTML).join("");
+
+    const subtotal = cart.reduce(
+      (total, product) =>
+        total + Number(product.price) * Number(product.quantity),
+      0,
+    );
+
+    if (subtotalElement)
+      subtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+    if (totalElement) totalElement.textContent = `$${subtotal.toFixed(2)}`;
   };
 
-  //*mostramos el contenido guardado al abrir o recargar la pagina
+  // Pinta el carrito al abrir carrito.html
   renderCart();
 
-  //*escuchamos los clicks de los botones dentro de las cards
+  // Lee los datos de la card pulsada y agrega el producto
   productList?.addEventListener("click", (event) => {
-    //*buscamos el boton pulsado, aunque este dentro de otro elemento
     const addButton = event.target.closest(".add-to-cart");
     if (!addButton) return;
 
-    //*obtenemos la card que contiene al boton pulsado
     const productCard = addButton.closest(".product-card");
     if (!productCard) return;
 
-    //*leemos los datos del producto desde los atributos data-* de la card
     const product = {
       id: productCard.dataset.id,
       name: productCard.dataset.name,
@@ -92,54 +86,76 @@ window.addEventListener("DOMContentLoaded", () => {
       quantity: 1,
     };
 
-    //*si la card no tiene nombre, no añadimos el producto
-    if (!product.name) return;
+    const existingProduct = cart.find((item) => item.id === product.id);
 
-    //*añadimos el producto al array del carrito
-    cart.push(product);
+    if (existingProduct) {
+      existingProduct.quantity += 1;
+    } else {
+      cart.push(product);
+    }
 
-    //*mostramos en consola el producto que se acaba de añadir
-    console.log("debug: product added to carrito", product);
+    saveCart(cart);
+    console.log("Producto agregado:", product);
+  });
 
-    //*guardamos el carrito actualizado para mantener la persistencia
-    setLocalStorage(CART_STORAGE_KEY, cart);
+  // Controla cantidades y elimina productos del carrito
+  cartList?.addEventListener("click", (event) => {
+    const cartItem = event.target.closest(".cart-item");
+    if (!cartItem) return;
 
-    //*actualizamos la vista del carrito
+    const product = cart.find((item) => item.id === cartItem.dataset.id);
+    if (!product) return;
+
+    if (event.target.closest(".increase-quantity")) {
+      product.quantity += 1;
+    }
+
+    if (event.target.closest(".decrease-quantity")) {
+      product.quantity -= 1;
+      if (product.quantity <= 0) {
+        cart = cart.filter((item) => item.id !== cartItem.dataset.id);
+      }
+    }
+
+    if (event.target.closest(".cart-item-remove")) {
+      cart = cart.filter((item) => item.id !== cartItem.dataset.id);
+    }
+
+    if (cart.length > 0) {
+      saveCart(cart);
+    } else {
+      localStorage.removeItem("shoppingCart");
+    }
+
     renderCart();
   });
 
-  //*escuchamos el click del boton de compra
-  submitButton?.addEventListener("click", (event) => {
-    //*evitamos el comportamiento por defecto del boton
+  // Finaliza la compra y muestra una confirmacion breve
+  checkoutButton?.addEventListener("click", (event) => {
     event.preventDefault();
 
-    //*si no hay productos, no se puede realizar la compra
-    if (!cart.length) {
+    if (cart.length === 0) {
       console.log("no products in carrito");
       return;
     }
 
-    //*mostramos en consola los productos que se van a comprar
-    console.log("debug: purchase completed", cart);
-
-    //*vaciamos el array del carrito
+    console.log("Compra realizada:", cart);
     cart = [];
-
-    //*eliminamos tambien el carrito guardado en localstorage
-    localStorage.removeItem(CART_STORAGE_KEY);
-
-    //*mostramos el carrito vacio en la pagina
+    localStorage.removeItem("shoppingCart");
     renderCart();
 
-    //*si el mensaje ya existe, cambiamos su texto
+    cartEmpty?.classList.add("d-none");
+    cartFull?.classList.remove("d-none");
+
     if (purchaseMessage) {
-      purchaseMessage.textContent = "Compra realizada con éxito.";
-    } else {
-      //*si no existe, creamos el mensaje despues del boton
-      submitButton.insertAdjacentHTML(
-        "afterend",
-        '<p id="purchaseMessage">Compra realizada con éxito.</p>',
-      );
+      purchaseMessage.innerHTML = `
+        <span class="purchase-check" aria-hidden="true">&#10003;</span>
+        <span>Compra realizada</span>
+      `;
+      purchaseMessage.classList.add("purchase-success");
     }
+
+    // Da tiempo para ver la confirmacion antes de recargar la pagina
+    setTimeout(() => window.location.reload(), 1500);
   });
 });
