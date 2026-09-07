@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harry Potter Shop · Carrito</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header>
+    
+  </header>
+
+  <main>
+
+    <!-- ================= CARRITO: VACÍO ================= -->
+    <!-- Muestra este bloque cuando el carrito no tiene productos -->
+    <section id="cart-empty" class="cart-state text-center">
+       <div class="d-grid gap-2 col-6 mx-auto">
+        <h1>Tu carrito está vacío</h1>
+        <button class="btn btn-warning btn-lg" type="button">Sigue comprando</button>
+      </div>
+    </section>
+
+
+    
+
+    <!-- ================= CARRITO: CON PRODUCTOS ================= -->
+    <!-- Oculto por defecto (d-none). Quita d-none y ocúltalo del bloque de arriba
+         cuando el carrito tenga al menos un producto. -->
+    <section id="cart-full" class="cart-state ">
+      <div class="container">
+        <h1 class="mb-4">Tu carrito</h1>
+
+        <div class="row g-4">
+          <div class="col-lg-8">
+
+            <div class="cart-item">
+              <div class="cart-item-img"></div>
+              <div class="cart-item-info">
+                <h3>Diadema de Ravenclaw</h3>
+                <p class="muted">Réplica de colección</p>
+                <div class="qty-control">
+                  <button type="button" aria-label="Restar">−</button>
+                  <span>1</span>
+                  <button type="button" aria-label="Sumar">+</button>
+                </div>
+              </div>
+              <div class="cart-item-price">$899.00</div>
+              <button type="button" class="cart-item-remove" aria-label="Eliminar">×</button>
+            </div>
+
+            <div class="cart-item">
+              <div class="cart-item-img"></div>
+              <div class="cart-item-info">
+                <h3>Autobús noctámbulo a escala</h3>
+                <p class="muted">Edición limitada</p>
+                <div class="qty-control">
+                  <button type="button" aria-label="Restar">−</button>
+                  <span>1</span>
+                  <button type="button" aria-label="Sumar">+</button>
+                </div>
+              </div>
+              <div class="cart-item-price">$1,299.00</div>
+              <button type="button" class="cart-item-remove" aria-label="Eliminar">×</button>
+            </div>
+
+          </div>
+
+          <div class="col-lg-4">
+            <div class="order-summary">
+              <h3>Resumen</h3>
+              <div class="summary-row">
+                <span>Subtotal</span>
+                <span>$2,198.00</span>
+              </div>
+              <div class="summary-row muted">
+                <span>Envío</span>
+                <span>Se calcula al pagar</span>
+              </div>
+              <hr>
+              <div class="summary-row total">
+                <span>Total</span>
+                <span>$2,198.00</span>
+              </div>
+              <button type="button" class="btn btn-gold w-100 mt-3">Pagar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= COLECCIÓN DESTACADA ================= -->
+   
+
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
