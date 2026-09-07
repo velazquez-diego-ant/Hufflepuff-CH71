@@ -1,5 +1,7 @@
 body{
     background-color: #F4F1EA;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.5px;
     
 }
 #img-logo-form{
@@ -13,12 +15,12 @@ body{
     object-fit: cover;
 }
 
-
-
 .faqs{
     background: linear-gradient(180deg, #121212 0%, #1e1e1e 100%);
 }
 #faqs h2 {
+    /* Aplicar a los títulos de la sección */
+    font-family: 'Cinzel';
     color: #212529 !important; /* Fuerza el color oscuro en el título de FAQs */
 }
 .texto-inmediato-faqs{
