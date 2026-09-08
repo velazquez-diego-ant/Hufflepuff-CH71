@@ -48,7 +48,7 @@
   color: #372e29;
   font-family: 'Cinzel Decorative', serif;
   bottom: 10px;
-  padding: 10px;
+  padding: 0px;
 }
 
 #carouselAlumnos .carousel-indicators button {
@@ -58,8 +58,8 @@
 #seccion-alumnos {
   background-color: #d3b48c;
   max-width: 2000px;
-  margin: 60px auto;
-  padding: 25px;
+    margin: 0 auto;
+  padding: 0px;
   border-radius: 12px;
 }
 /* ---------- SECCIÓN HERBOLOGÍA ASLAN ---------- */

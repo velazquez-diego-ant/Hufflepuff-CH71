@@ -1,135 +1,235 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hufflepuff</title>
-    <!-- CSS de Bootstrap 5 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">    
-</head>
-<body>
-    
-  <div class="container py-5">
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-      
-      <!-- Card 1 -->
-      <div class="col">
-        <div class="card h-100 text-center">
-          <img src="hp/basilisco.jpeg" class="card-img-top" alt="Basilisco">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <div>
-              <h5 class="card-title">Basilisco</h5>
-              <p class="card-text">El basilisco es un término que se refiere principalmente a una criatura de la mitología clásica o a un conocido género de lagartos de América.</p>
-            </div>
-            <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
-          </div>
-          <div class="card-footer text-body-secondary">
-          <small class="text-body-secondary" style="font-size: 1rem;">
-          <strong>$ 1,000 Galeones.</strong>
-          </small>
-          </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tienda de animales | Hufflepuff</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link href="styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-hufflepuff">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img
+            src="assets/logo.jpeg"
+            alt="Logo Hufflepuff"
+            width="50"
+            height="50"
+            class="me-2 rounded-circle"
+          />
+          Hufflepuff
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Abrir navegación"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="cards-herbolaria.html">Herbología</a>
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                aria-current="page"
+                href="cards-animales.html"
+                >Animales</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="carrito.html">Carrito 🛒</a>
+            </li>
+          </ul>
         </div>
       </div>
- 
-      <!-- Card 2 -->
-      <div class="col">
-        <div class="card h-100 text-center">
-          <img src="hp/niffler.jpeg" class="card-img-top" alt="Nifflers">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <div>
-              <h5 class="card-title">Nifflers</h5>
-              <p class="card-text">Los nifflers (o escarbato en español) son criaturas mágicas parecidas a roedores con un hocico largo y pelaje negro, famosos por su amor obsesivo hacia los objetos brillantes.</p>
+    </nav>
+
+    <main id="productList" class="container py-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="mb-0">Tienda de animales</h1>
+        <a class="btn btn-gold" href="carrito.html">Ver carrito</a>
+      </div>
+
+      <div
+        id="addMessage"
+        class="alert alert-success d-none"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div
+          class="col product-card"
+          data-id="animal-1"
+          data-name="Basilisco"
+          data-price="1000"
+          data-image="hp/basilisco.jpeg"
+        >
+          <article class="card h-100 text-center">
+            <img src="hp/basilisco.jpeg" class="card-img-top" alt="Basilisco" />
+            <div class="card-body d-flex flex-column">
+              <h2 class="h5 card-title">Basilisco</h2>
+              <p class="card-text">
+                Criatura legendaria de gran poder y presencia.
+              </p>
+              <p class="fw-bold mt-auto">$1,000 Galeones</p>
+              <button type="button" class="add-to-cart btn btn-gold">
+                Agregar al carrito
+              </button>
             </div>
-            <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
-          </div>
-          <div class="card-footer text-body-secondary">
-            <small class="text-body-secondary" style="font-size: 1rem;">
-            <strong>$ 500 Galeones.</strong>
-            </small>
-          </div>
+          </article>
+        </div>
+
+        <div
+          class="col product-card"
+          data-id="animal-2"
+          data-name="Niffler"
+          data-price="500"
+          data-image="hp/niffler.jpeg"
+        >
+          <article class="card h-100 text-center">
+            <img src="hp/niffler.jpeg" class="card-img-top" alt="Niffler" />
+            <div class="card-body d-flex flex-column">
+              <h2 class="h5 card-title">Niffler</h2>
+              <p class="card-text">
+                Criatura mágica conocida por buscar objetos brillantes.
+              </p>
+              <p class="fw-bold mt-auto">$500 Galeones</p>
+              <button type="button" class="add-to-cart btn btn-gold">
+                Agregar al carrito
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div
+          class="col product-card"
+          data-id="animal-3"
+          data-name="Bowtruckle"
+          data-price="300"
+          data-image="hp/bowtruckle.jpeg"
+        >
+          <article class="card h-100 text-center">
+            <img
+              src="hp/bowtruckle.jpeg"
+              class="card-img-top"
+              alt="Bowtruckle"
+            />
+            <div class="card-body d-flex flex-column">
+              <h2 class="h5 card-title">Bowtruckle</h2>
+              <p class="card-text">
+                Pequeña criatura mágica con apariencia de ramitas y corteza.
+              </p>
+              <p class="fw-bold mt-auto">$300 Galeones</p>
+              <button type="button" class="add-to-cart btn btn-gold">
+                Agregar al carrito
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div
+          class="col product-card"
+          data-id="animal-4"
+          data-name="Bufanda Hufflepuff"
+          data-price="80"
+          data-image="hp/bufanda.jpeg"
+        >
+          <article class="card h-100 text-center">
+            <img
+              src="hp/bufanda.jpeg"
+              class="card-img-top"
+              alt="Bufanda Hufflepuff"
+            />
+            <div class="card-body d-flex flex-column">
+              <h2 class="h5 card-title">Bufanda Hufflepuff</h2>
+              <p class="card-text">
+                Bufanda tejida para llevar los colores de la casa.
+              </p>
+              <p class="fw-bold mt-auto">$80 Galeones</p>
+              <button type="button" class="add-to-cart btn btn-gold">
+                Agregar al carrito
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div
+          class="col product-card"
+          data-id="animal-5"
+          data-name="Mochila Hufflepuff"
+          data-price="100"
+          data-image="hp/mochila.jpeg"
+        >
+          <article class="card h-100 text-center">
+            <img
+              src="hp/mochila.jpeg"
+              class="card-img-top"
+              alt="Mochila Hufflepuff"
+            />
+            <div class="card-body d-flex flex-column">
+              <h2 class="h5 card-title">Mochila Hufflepuff</h2>
+              <p class="card-text">
+                Mochila resistente con el estilo y escudo de Hufflepuff.
+              </p>
+              <p class="fw-bold mt-auto">$100 Galeones</p>
+              <button type="button" class="add-to-cart btn btn-gold">
+                Agregar al carrito
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <div
+          class="col product-card"
+          data-id="animal-6"
+          data-name="Calcetines Hufflepuff"
+          data-price="30"
+          data-image="hp/calcetines.jpeg"
+        >
+          <article class="card h-100 text-center">
+            <img
+              src="hp/calcetines.jpeg"
+              class="card-img-top"
+              alt="Calcetines Hufflepuff"
+            />
+            <div class="card-body d-flex flex-column">
+              <h2 class="h5 card-title">Calcetines Hufflepuff</h2>
+              <p class="card-text">
+                Calcetines suaves para mantener tus pies cómodos.
+              </p>
+              <p class="fw-bold mt-auto">$30 Galeones</p>
+              <button type="button" class="add-to-cart btn btn-gold">
+                Agregar al carrito
+              </button>
+            </div>
+          </article>
         </div>
       </div>
+    </main>
 
-      <!-- Card 3 -->
-      <div class="col">
-        <div class="card h-100 text-center">
-          <img src="hp/bowtruckle.jpeg" class="card-img-top" alt="Bowtruckle">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <div>
-              <h5 class="card-title">Bowtruckle</h5>
-              <p class="card-text">El bowtruckle es una pequeña criatura mágica del universo de Harry Potter que mide un máximo de veinte centímetros y parece una figura de ramitas y corteza.</p>
-            </div>
-            <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
-          <div class="card-footer text-body-secondary">
-          <small class="text-body-secondary" style="font-size: 1rem;">
-          <strong>$ 300 Galeones.</strong>
-          </small>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>  
-<div class="container text-center py-5">
-
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
-    <div class="card h-100">
-      <img src="hp/bufanda.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Bufanda Hufflepuff</h5>
-        <p class="card-text">¡Vístete con los valores de la casa más leal de Hogwarts con esta bufanda tejida de Hufflepuff!
-
-¿Eres un verdadero Hufflepuff, orgulloso de tu paciencia, lealtad y trabajo duro? ¡Entonces esta bufanda es para ti!.</p>
-<button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
-      
-</div>
-      <div class="card-footer">
-        <small class="text-body-secondary" style="font-size: 1rem;">
-  <strong>$80 Galeones.</strong>
-</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="hp/mochila.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Mochila Hufflepuff</h5>
-        <p class="card-text">¡Lleva el orgullo de Hufflepuff a todas partes! 🦡💛
-
-esta mochila edición especial de Hufflepuff está hecha para ti.
-
-Diseñada con un estilo vintage en lona amarilla de alta resistencia, detalles en piel marrón y el escudo oficial bordado con precisión, es el accesorio perfecto para tus aventuras diarias en el mundo mágico (o muggle)</p>
-      <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
-
-</div>
-      <div class="card-footer">
-       <small class="text-body-secondary" style="font-size: 1rem;">
-  <strong>$100 Galeones.</strong>
-</small>
-      </div>
-    </div>
-  </div>
-  <div class="col">
-    <div class="card h-100">
-      <img src="hp/calcetines.jpeg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Calcetas Hufflepuff</h5>
-        <p class="card-text">Tejidas con materiales suaves y cómodos para mantener tus pies calientes en cualquier clima, ya sea en el Gran Comedor o en una aventura por el Callejón Diagon</p>
-      <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
-
-    </div>
-      <div class="card-footer">
-        <small class="text-body-secondary" style="font-size: 1rem;">
-  <strong>$30 Galeones.</strong>
-</small>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-
-</body>
+    <script src="carrito.js" defer></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
