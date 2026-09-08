@@ -21,7 +21,7 @@
 #carouselAlumnos {
   max-width: 700px;
   margin: 0 auto;
-  border: 2px solid #ecb939;
+  border: 2px solid #cfbe94;
   border-radius: 8px;
   overflow: hidden;
 
@@ -44,22 +44,22 @@
 
 #carouselAlumnos .carousel-caption {
   background-color: rgba(251, 249, 241, 0.85);
-  border-top: 2px solid #f0bc3a;
+  border-top: 2px solid #d2c29b;
   color: #372e29;
   font-family: 'Cinzel Decorative', serif;
   bottom: 10px;
-  padding: 10px;
+  padding: 0px;
 }
 
 #carouselAlumnos .carousel-indicators button {
-  background-color: #ecb939 !important;
+  background-color: #c5b58c !important;
 }
 
 #seccion-alumnos {
-  background-color: #E1A95f;
+  background-color: #d3b48c;
   max-width: 2000px;
-  margin: 60px auto;
-  padding: 25px;
+    margin: 0 auto;
+  padding: 0px;
   border-radius: 12px;
 }
 /* ---------- SECCIÓN HERBOLOGÍA ASLAN ---------- */
@@ -99,7 +99,7 @@
 
 body {
     margin: 0;
-    background-color:#E1A95F;
+    background-color:antiquewhite;
     color: var(--ink);
     font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -147,6 +147,13 @@ body {
     border-radius: 10px;
     background: var(--panel);
     flex-shrink: 0;
+    overflow: hidden;
+}
+
+.cart-item-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .cart-item-info {

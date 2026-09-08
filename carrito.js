@@ -12,7 +12,9 @@ const saveCart = (cart) => {
 // Crea el HTML de cada producto que aparece en el carrito
 const createProductCardHTML = (product) => `
   <div class="cart-item" data-id="${product.id}">
-    <div class="cart-item-img"></div>
+    <div class="cart-item-img">
+      ${product.image ? `<img src="${product.image}" alt="${product.name}" />` : ""}
+    </div>
     <div class="cart-item-info">
       <h3>${product.name}</h3>
       <p class="muted">Producto de la tienda</p>
@@ -39,6 +41,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const totalElement = document.getElementById("cart-total");
   const checkoutButton = document.getElementById("checkoutButton");
   const purchaseMessage = document.getElementById("purchaseMessage");
+  const addMessage = document.getElementById("addMessage");
   let cart = getCart();
 
   // Muestra el estado actual del carrito y calcula sus totales
@@ -83,6 +86,7 @@ window.addEventListener("DOMContentLoaded", () => {
       id: productCard.dataset.id,
       name: productCard.dataset.name,
       price: Number(productCard.dataset.price) || 0,
+      image: productCard.dataset.image,
       quantity: 1,
     };
 
@@ -96,6 +100,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     saveCart(cart);
     console.log("Producto agregado:", product);
+
+    if (addMessage) {
+      addMessage.textContent = `${product.name} agregado correctamente al carrito.`;
+      addMessage.classList.remove("d-none");
+    }
   });
 
   // Controla cantidades y elimina productos del carrito

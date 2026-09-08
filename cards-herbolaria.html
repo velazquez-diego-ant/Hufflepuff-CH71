@@ -8,17 +8,46 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
     />
-    
- 
-<div class="container text-center py-5">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-hufflepuff">
+      <div class="container">
+        <a class="navbar-brand d-flex align-items-center" href="index.html">
+          <img src="assets/logo.jpeg" alt="Logo Hufflepuff" width="50" height="50" class="me-2 rounded-circle" />
+          Hufflepuff
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="cards-herbolaria.html">Herbología</a></li>
+            <li class="nav-item"><a class="nav-link" href="cards-animales.html">Animales</a></li>
+            <li class="nav-item"><a class="nav-link" href="carrito.html">Carrito 🛒</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!--?esto agrega el mensaje de que se agrego al carro correctamente-->
+    <main id="productList" class="container text-center py-5">
+      <div
+        id="addMessage"
+        class="alert alert-success d-none"
+        role="status"
+        aria-live="polite"
+      ></div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col product-card" data-id="herb-1" data-name="Bubotubérculo" data-price="500" data-image="assets/bubotuber.jpg">
     <div class="card h-100">
       <img src="/assets/bubotuber.jpg" class="card-img-top" alt="bubotuber">
       <div class="card-body">
         <h5 class="card-title">Bubotubérculo</h5>
         <p class="card-text"> Esta parte de la planta también se retuerce por su propia voluntad. La superficie de un bubotubérculo está cubierta de protuberancias brillantes, que cuando se aprietan producen un espeso pus, de color verde amarillento, que tiene un olor similar al de la gasolina. El pus de bubotubérculo actúa como un tratamiento para el acné severo, pero el pus no diluido puede afectar a la piel sin protección de forma no intencionada.</p>
-        <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
+        <button type="button" class="add-to-cart btn btn-gold py-1 px-5">Agregar al carrito.</button>
       </div>
       <div class="card-footer">
         <small class="text-body-secondary" style="font-size: 1rem;">
@@ -27,13 +56,13 @@
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col product-card" data-id="herb-2" data-name="Sauce Boxeador" data-price="2500" data-image="assets/sauceBoxeador.jpg">
     <div class="card h-100">
       <img src="/assets/sauceBoxeador.jpg" class="card-img-top" alt="sauceBoxeador">
       <div class="card-body">
         <h5 class="card-title">Sauce Boxeador</h5>
         <p class="card-text">El sauce boxeador más famoso es el que está plantado en los terrenos de Hogwarts. Fue plantado ahí alrededor del año 1971. Tenía un pequeño nudo cerca de la base. Al presionar el nudo, el árbol se inmovilizó. Esto permitía a Remus Lupin ir y volver de la Casa de los Gritos sin ser descubierto.</p>
-        <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
+        <button type="button" class="add-to-cart btn btn-gold py-1 px-5">Agregar al carrito.</button>
       </div>
       <div class="card-footer">
         <small class="text-body-secondary" style="font-size: 1rem;">
@@ -42,13 +71,13 @@
       </div>
     </div>
   </div>
-  <div class="col">
+  <div class="col product-card" data-id="herb-3" data-name="Mimbulus mimbletonia" data-price="450" data-image="assets/mimbulusMimbletonia.jpg">
     <div class="card h-100">
       <img src="/assets/mimbulusMimbletonia.jpg" class="card-img-top" alt="mimbulusMimbletonia">
       <div class="card-body">
         <h5 class="card-title">Mimbulus mimbletonia</h5>
         <p class="card-text">Es más notable por su palpitante y retorcida apariencia y su mecanismo de defensa único. Cuando se pincha, una sustancia llamada jugo fétido sale disparada desde los forúnculos en la superficie de la planta. El jugo fétido es un líquido no venenoso y se describe como de color verde oscuro y con olor a "estiércol podrido".</p>
-        <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
+        <button type="button" class="add-to-cart btn btn-gold py-1 px-5">Agregar al carrito.</button>
       </div>
       <div class="card-footer">
         <small class="text-body-secondary" style="font-size: 1rem;">
@@ -63,8 +92,8 @@
 <div class="container text-center py-5">
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
-            <div class="col">
-                <div class="card h-100">
+            <div class="col product-card" data-id="herb-4" data-name="Mandrágora" data-price="500" data-image="assets/mandragora.jpg">
+              <div class="card h-100">
                     <img src="/assets/mandragora.jpg" class="card-img-top" alt="Mandragora">
                     <div class="card-body">
                         <h5 class="card-title">Mandrágora</h5>
@@ -73,7 +102,7 @@
                             joven, pero madura a medida que la planta crece). Cuando madura, su grito puede ser fatal
                             para
                             cualquier persona que lo escuche</p>
-                        <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
+                        <button type="button" class="add-to-cart btn btn-gold py-1 px-5">Agregar al carrito.</button>
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary" style="font-size: 1rem;"><strong>$ 500
@@ -81,8 +110,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
+            <div class="col product-card" data-id="herb-5" data-name="Lazo del Diablo" data-price="200" data-image="assets/lazoDelDiablo.jpg">
+              <div class="card h-100">
                     <img src="/assets/lazoDelDiablo.jpg" class="card-img-top" alt="lazo">
                     <div class="card-body">
                         <h5 class="card-title">Lazo del Diablo</h5>
@@ -90,7 +119,7 @@
                             estrangular cualquier cosa en su entorno circundante o algo que la toque. El lazo del diablo
                             no
                             parece ser común, pero ciertos herbólogos tienen acceso a él</p>
-                        <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
+                        <button type="button" class="add-to-cart btn btn-gold py-1 px-5">Agregar al carrito.</button>
                     </div>
                     <div class="card-footer">
                         <small class="text-body-secondary" style="font-size: 1rem;"><strong>$200
@@ -98,14 +127,14 @@
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card h-100">
+            <div class="col product-card" data-id="herb-6" data-name="Branquialgas" data-price="70" data-image="assets/branquialgas.jpg">
+              <div class="card h-100">
                     <img src="/assets/branquialgas.jpg" class="card-img-top" alt="sauce">
                     <div class="card-body">
                         <h5 class="card-title">Branquialgas</h5>
                         <p class="card-text">Las branquialgas es una planta mágica que, cuando se come, permite al ser
                             humano respirar bajo el agua.</p>
-                        <button type="button" class="btn btn-hufflepuff py-1 px-5">Agregar al carrito.</button>
+                        <button type="button" class="add-to-cart btn btn-gold py-1 px-5">Agregar al carrito.</button>
 
                     </div>
                     <div class="card-footer">
@@ -119,6 +148,9 @@
 </div>
 
 
+    </main>
+
+    <script src="carrito.js" defer></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
