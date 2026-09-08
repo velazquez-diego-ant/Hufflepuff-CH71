@@ -259,6 +259,90 @@ body {
     object-fit: cover;
 }
 
+/* ---------- CARRUSEL DE ANIMALES MÁGICOS ---------- */
+.animales-section {
+    padding: 70px 0;
+}
+
+.animales-intro {
+    max-width: 700px;
+    margin: 0 auto 45px;
+    padding: 0 1rem;
+    text-align: center;
+}
+
+.animales-intro h2 {
+    color: #1D1D1D;
+    margin-bottom: 18px;
+}
+
+.animales-intro p {
+    color: #3A3A3A;
+    line-height: 1.7;
+}
+
+.animales-carousel {
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 5px solid #FBB017;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.animales-carousel .carousel-item img {
+    height: 420px;
+    object-fit: cover;
+    filter: brightness(0.75);
+}
+
+.animales-carousel .carousel-caption {
+    right: 8%;
+    bottom: 40px;
+    left: 8%;
+    padding: 16px 22px;
+    text-align: left;
+    background-color: rgba(29, 29, 29, 0.55);
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+}
+
+.animales-carousel .carousel-caption h3 {
+    color: #FBB017;
+    margin-bottom: 6px;
+}
+
+.animales-carousel .carousel-caption p {
+    color: #FBF9F1;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.animales-carousel .carousel-indicators button {
+    background-color: #FBB017;
+}
+
+@media (max-width: 576px) {
+    .animales-section {
+        padding: 45px 0;
+    }
+
+    .animales-carousel .carousel-item img {
+        height: 260px;
+    }
+
+    .animales-carousel .carousel-caption {
+        right: 5%;
+        bottom: 15px;
+        left: 5%;
+        padding: 10px 14px;
+    }
+
+    .animales-carousel .carousel-caption p {
+        font-size: 0.8rem;
+    }
+}
+
 .alumnos-title {
     color: #372E29;
     font-family: "Cinzel Decorative", serif;

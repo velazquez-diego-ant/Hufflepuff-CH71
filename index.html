@@ -159,35 +159,119 @@
       </section>
     </div>
 
-    <!-- TIENDA DE ANIMALES -->
-    <section id="animales" class="container-fluid mt-4 px-0">
-      <div class="card card-criaturas text-white">
-        <div class="row g-0 align-items-center">
-          <div
-            class="col-md-5 d-flex justify-content-center align-items-center"
-          >
-            <img
-              src="assets/Animales.jpg"
-              class="img-fluid rounded-circle imgCriaturas shadow"
-              alt="Animales mágicos"
-            />
+    <!-- ANIMALES MÁGICOS -->
+    <section id="animales" class="animales-section">
+      <div class="container-fluid px-0">
+        <div class="animales-intro">
+          <h2>🦡 Animales de la Naturaleza Mágica 🪄</h2>
+          <p>
+            Hufflepuff ha formado a algunos de los magizoólogos más respetados
+            de la historia, entre ellos Newt Scamander. La casa del tejón valora
+            el cuidado, la paciencia y el respeto por toda criatura viva, sin
+            importar cuán peligrosa o incomprendida sea. Conoce algunas de las
+            bestias que forman parte de ese legado.
+          </p>
+        </div>
+
+        <div
+          id="carruselAnimales"
+          class="carousel slide animales-carousel"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carruselAnimales"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Basilisco"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carruselAnimales"
+              data-bs-slide-to="1"
+              aria-label="Escarbato"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carruselAnimales"
+              data-bs-slide-to="2"
+              aria-label="Bowtruckle"
+            ></button>
           </div>
-          <div class="col-md-7">
-            <div class="card-body">
-              <h2 class="card-title">🪄 Tienda animales 🦡</h2>
-              <p class="card-text">
-                Conoce a los fascinantes animales mágicos de Hufflepuff, la casa
-                más inclusiva, justa y trabajadora del colegio mágico.
-              </p>
-              <div class="text-end">
-                <a
-                  href="cards-animales.html"
-                  class="btn btn-hufflepuff py-1 px-5"
-                  >Ir</a
-                >
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <a href="cards-animales.html">
+                <img
+                  src="hp/basilisco.jpeg"
+                  class="d-block w-100"
+                  alt="Basilisco"
+                />
+              </a>
+              <div class="carousel-caption">
+                <h3>Basilisco</h3>
+                <p>
+                  La serpiente gigante conocida como la Reina de las Serpientes.
+                  Su mirada es letal y solo teme al canto del fénix.
+                </p>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <a href="cards-animales.html">
+                <img
+                  src="hp/niffler.jpeg"
+                  class="d-block w-100"
+                  alt="Escarbato"
+                />
+              </a>
+              <div class="carousel-caption">
+                <h3>Escarbato (Niffler)</h3>
+                <p>
+                  Pequeña criatura de hocico alargado, atraída de forma
+                  irresistible por todo lo que brilla.
+                </p>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <a href="cards-animales.html">
+                <img
+                  src="hp/bowtruckle.jpeg"
+                  class="d-block w-100"
+                  alt="Bowtruckle"
+                />
+              </a>
+              <div class="carousel-caption">
+                <h3>Bowtruckle</h3>
+                <p>
+                  Guardián de los árboles, tímido pero fiel a quien cuida su
+                  hogar.
+                </p>
               </div>
             </div>
           </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carruselAnimales"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carruselAnimales"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
         </div>
       </div>
     </section>
