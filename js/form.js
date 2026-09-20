@@ -70,14 +70,14 @@ const addAlbumCard = (albumDataObject, htmlElement) => {
 
 // Objeto con las URLs de los escudos según la casa (puedes cambiar los links por los tuyos)
     const escudosCasas = {
-        "Gryffindor": "./assets-form/img-form/a.jpg",
-        "Slytherin": "./assets-form/img-form/b.jpg",
-        "Ravenclaw": "./assets-form/img-form/c.jpg",
-        "Hufflepuff": "./assets-form/img-form/d.jpg"
+        "Gryffindor": "../assets-form/img-form/a.jpg",
+        "Slytherin": "../assets-form/img-form/b.jpg",
+        "Ravenclaw": "../assets-form/img-form/c.jpg",
+        "Hufflepuff": "../assets-form/img-form/d.jpg"
     };
 
     // Obtenemos la imagen de la casa, o una por defecto si no encuentra ninguna
-    const imagenEscudo = escudosCasas[albumDataObject.casa] || "./assets-form/img-form/0.png";
+    const imagenEscudo = escudosCasas[albumDataObject.casa] || "../assets-form/img-form/0.png";
 
     const albumCard = `
     <div class="card border shadow-sm mb-3" id="card-dinamic">
